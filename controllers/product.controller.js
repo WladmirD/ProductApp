@@ -9,9 +9,14 @@ exports.test = function (req, res) {
 exports.product_create = function (req, res) {
     let product = new Product(
         {
+            namelist: req.body.namelist,
+            creator: req.body.creator,
+            time: req.body.time,
+            creatorOrder: req.body.creatorOrder,
             name: req.body.name,
             size: req.body.size,
-            flavour: req.body.flavour
+            flavour: req.body.flavour,
+            willbuy: req.body.willbuy,
         }
     );
 
