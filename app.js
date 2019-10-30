@@ -1,4 +1,4 @@
-//app.js
+//app.js 
 const express = require('express');
 const bodyParser = require('body-parser');
 const product = require('./routes/product.route'); // Imports routes for the products
