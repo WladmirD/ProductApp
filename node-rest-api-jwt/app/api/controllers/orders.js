@@ -42,7 +42,7 @@ updateById: function(req, res, next) {
 if(err)
     next(err);
    else {
-    res.json({status:"success", message: "order updated successfully!!!", data:null});
+    res.json({status:"success", message: "order updated successfully", data:null});
    }
   });
  },
@@ -57,6 +57,7 @@ deleteById: function(req, res, next) {
   });
  },
  //Create orders
+ 
 create: function(req, res, next){order.create(
     { 
     name: req.body.name, 
@@ -68,8 +69,11 @@ create: function(req, res, next){order.create(
       if (err) 
        next(err);
       else
-       res.json({status: "success", message: "order added successfully", data: null});
+      
+       
+      res.json({status: "success", message: "order added successfully", data: null});
       
     });
  },
+
 }
