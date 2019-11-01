@@ -34,7 +34,7 @@ list.find({}, function(err, lists){
  },
  //Update lists
 updateById: function(req, res, next) {
-  list.findByIdAndUpdate(req.params.listId, function(err, listInfo){
+  list.findByIdAndUpdate(req.params.listId,{name:req.body.name}, function(err, listInfo){
 if(err)
     next(err);
    else {
