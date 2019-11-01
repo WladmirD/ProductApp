@@ -11,14 +11,14 @@ const orderSchema = new Schema({
     type: String,
     required: true,
  },
- creador:{
+ creator:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'users',
+    ref: 'User',
     required: true
  },
 lista:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'lists',
+    ref: 'list',
     required: true
 },
 precio:{
@@ -40,7 +40,7 @@ size:{
     
 });
 orderSchema.index({
-    creador: 1,
+    creator: 1,
     lista: 1,
 },{
     unique: true

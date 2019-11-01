@@ -1,8 +1,9 @@
-const orderModel = require('../models/orders');
+const order = require('../models/orders');
+const list = require('../models/lists');
 module.exports = {
  getById: function(req, res, next) {
   console.log(req.body);
-  orderModel.findById(req.params.orderId, function(err, orderInfo){
+  order.findById(req.params.orderId, function(err, orderInfo){
    if (err) {
     next(err);
    } else {
@@ -13,7 +14,7 @@ module.exports = {
  //Show orders
 getAll: function(req, res, next) {
   let ordersList = [];
-orderModel.find({}, function(err, orders){
+order.find({}, function(err, orders){
    if (err){
     next(err);
    } else{
@@ -22,8 +23,8 @@ orderModel.find({}, function(err, orders){
         id: order._id,
         name: order.name,
         sabor: order.sabor,
-        creador: order.creador,
-        lista: order.lista,
+        creator: order.creator,
+        list: order.list,
         size: order.size,
         });
     }
@@ -34,7 +35,7 @@ orderModel.find({}, function(err, orders){
  },
  //Update orders
 updateById: function(req, res, next) {
-  orderModel.findByIdAndUpdate(req.params.orderId,{name:req.body.name}, function(err, orderInfo){
+  order.findByIdAndUpdate(req.params.orderId,{name:req.body.name}, function(err, orderInfo){
 if(err)
     next(err);
    else {
@@ -44,7 +45,7 @@ if(err)
  },
  //Delete orders
 deleteById: function(req, res, next) {
-  orderModel.findByIdAndRemove(req.params.orderId, function(err, orderInfo){
+  order.findByIdAndRemove(req.params.orderId, function(err, orderInfo){
    if(err)
     next(err);
    else {
@@ -53,11 +54,11 @@ deleteById: function(req, res, next) {
   });
  },
  //Create orders
-create: function(req, res, next){orderModel.create(
+create: function(req, res, next){order.create(
     { 
     name: req.body.name, 
     sabor: req.body.sabor,
-    creador: req.body.creador,
+    creator: req.body.creator,
     lista: req.body.lista,
     size: req.body.size,
     }, function (err, result) {

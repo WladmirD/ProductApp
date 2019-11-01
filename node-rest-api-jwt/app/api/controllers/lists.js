@@ -1,8 +1,8 @@
-const listModel = require('../models/lists');
+const list = require('../models/lists');
 module.exports = {
  getById: function(req, res, next) {
   console.log(req.body);
-  listModel.findById(req.params.listId, function(err, listInfo){
+  list.findById(req.params.listId, function(err, listInfo){
    if (err) {
     next(err);
    } else {
@@ -13,7 +13,7 @@ module.exports = {
  //Show lists
 getAll: function(req, res, next) {
   let listsList = [];
-listModel.find({}, function(err, lists){
+list.find({}, function(err, lists){
    if (err){
     next(err);
    } else{
@@ -34,7 +34,7 @@ listModel.find({}, function(err, lists){
  },
  //Update lists
 updateById: function(req, res, next) {
-  listModel.findByIdAndUpdate(req.params.listId, function(err, listInfo){
+  list.findByIdAndUpdate(req.params.listId, function(err, listInfo){
 if(err)
     next(err);
    else {
@@ -44,7 +44,7 @@ if(err)
  },
  //Delete List by ID
 deleteById: function(req, res, next) {
-  listModel.findByIdAndRemove(req.params.listId, function(err, listInfo){
+  list.findByIdAndRemove(req.params.listId, function(err, listInfo){
    if(err)
     next(err);
    else {
@@ -54,7 +54,7 @@ deleteById: function(req, res, next) {
  },
  //Create list
 create: function(req, res, next) {
-  listModel.create({creator: req.body.creator, name: req.body.name}, function (err, result) {
+  list.create({creator: req.body.creator, name: req.body.name}, function (err, result) {
       if (err) 
        next(err);
       else

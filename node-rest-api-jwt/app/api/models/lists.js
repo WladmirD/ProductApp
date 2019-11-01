@@ -8,8 +8,8 @@ const listSchema = new Schema({
   required: true,
  },
  creator:{
-     type: mongoose.Schema.Types.ObjectId,
-     ref: 'users',
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
  },
  created: {
   type: Date,
@@ -21,7 +21,7 @@ const listSchema = new Schema({
  },
 order:[{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'orders',
+    ref: 'order',
 }],
 });
 module.exports = mongoose.model('list', listSchema)
