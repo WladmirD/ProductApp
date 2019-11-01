@@ -1,3 +1,4 @@
+
 const order = require('../models/orders');
 const list = require('../models/lists');
 module.exports = {
@@ -19,7 +20,7 @@ order.find({}, function(err, orders){
     next(err);
    } else{
     for (let order of orders) {
-     ordersList.push({
+        ordersList.push({
         id: order._id,
         name: order.name,
         sabor: order.sabor,
@@ -28,7 +29,9 @@ order.find({}, function(err, orders){
         size: order.size,
         });
     }
+
     res.json({status:"success", message: "orders list found", data:{orders: ordersList}});
+    
        
    }
 });
@@ -59,7 +62,7 @@ create: function(req, res, next){order.create(
     name: req.body.name, 
     sabor: req.body.sabor,
     creator: req.body.creator,
-    lista: req.body.lista,
+    list: req.body.list,
     size: req.body.size,
     }, function (err, result) {
       if (err) 

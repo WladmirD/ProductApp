@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 //Define a schema
-const Schema = mongoose.Schema;
-const listSchema = new Schema({
+const listSchema = new mongoose.Schema({
  name: {
   type: String,
   trim: true,  

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 //Define a schema
-const Schema = mongoose.Schema;
-const orderSchema = new Schema({
+const orderSchema = new mongoose.Schema({
  name: {
   type: String,
   trim: true,  
@@ -16,7 +15,7 @@ const orderSchema = new Schema({
     ref: 'User',
     required: true
  },
-lista:{
+list:{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'list',
     required: true
