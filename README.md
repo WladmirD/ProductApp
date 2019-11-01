@@ -8,9 +8,9 @@ Clone the repository and extract it.
 
 ### Prerequisites
 
-Node Js
-NPM
-MongoDB
+*Node Js
+*NPM
+*MongoDB
 
 
 ## Built With
