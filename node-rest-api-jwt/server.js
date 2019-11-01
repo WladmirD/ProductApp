@@ -13,7 +13,7 @@ mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection 
 app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 app.get('/', function(req, res){
-res.json({"tutorial" : "Build REST API with node.js"});
+res.json({"Test" : " "});
 });
 // public route
 app.use('/users', users);
