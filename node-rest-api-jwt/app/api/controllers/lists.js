@@ -6,7 +6,7 @@ module.exports = {
    if (err) {
     next(err);
    } else {
-    res.json({status:"success", message: "list found!!!", data:{lists: listInfo}});
+    res.json({status:"success", message: "list found", data:{lists: listInfo}});
    }
   });
  },
@@ -19,7 +19,7 @@ listModel.find({}, function(err, lists){
     for (let list of lists) {
      listsList.push({id: list._id, name: list.name, created: list.created, time: list.time});
     }
-    res.json({status:"success", message: "lists list found!!!", data:{lists: listsList}});
+    res.json({status:"success", message: "lists list found", data:{lists: listsList}});
        
    }
 });
@@ -29,7 +29,7 @@ updateById: function(req, res, next) {
 if(err)
     next(err);
    else {
-    res.json({status:"success", message: "list updated successfully!!!", data:null});
+    res.json({status:"success", message: "list updated successfully", data:null});
    }
   });
  },
@@ -38,16 +38,16 @@ deleteById: function(req, res, next) {
    if(err)
     next(err);
    else {
-    res.json({status:"success", message: "list deleted successfully!!!", data:null});
+    res.json({status:"success", message: "list deleted successfully", data:null});
    }
   });
  },
 create: function(req, res, next) {
-  listModel.create({ name: req.body.name, created: req.body.created, time:req.body.time }, function (err, result) {
+  listModel.create({ name: req.body.name, created:req.body.create, time:req.body.time }, function (err, result) {
       if (err) 
        next(err);
       else
-       res.json({status: "success", message: "list added successfully!!!", data: null});
+       res.json({status: "success", message: "list added successfully", data: null});
       
     });
  },

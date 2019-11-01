@@ -6,7 +6,7 @@ module.exports = {
    if (err) {
     next(err);
    } else {
-    res.json({status:"success", message: "order found!!!", data:{orders: orderInfo}});
+    res.json({status:"success", message: "order found", data:{orders: orderInfo}});
    }
   });
  },
@@ -19,7 +19,7 @@ orderModel.find({}, function(err, orders){
     for (let order of orders) {
      ordersList.push({id: order._id, name: order.name, released_on: order.released_on});
     }
-    res.json({status:"success", message: "orders list found!!!", data:{orders: ordersList}});
+    res.json({status:"success", message: "orders list found", data:{orders: ordersList}});
        
    }
 });
@@ -38,7 +38,7 @@ deleteById: function(req, res, next) {
    if(err)
     next(err);
    else {
-    res.json({status:"success", message: "order deleted successfully!!!", data:null});
+    res.json({status:"success", message: "order deleted successfully", data:null});
    }
   });
  },
@@ -47,7 +47,7 @@ create: function(req, res, next) {
       if (err) 
        next(err);
       else
-       res.json({status: "success", message: "order added successfully!!!", data: null});
+       res.json({status: "success", message: "order added successfully", data: null});
       
     });
  },

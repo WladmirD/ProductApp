@@ -10,7 +10,7 @@ const listSchema = new Schema({
  created: {
   type: Date,
   trim: true,
-  required: true
+  required: false
  },
  time: {
     type: Number,
