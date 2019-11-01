@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const listController = require('../app/api/controllers/lists');
+const listController = require('../app/api/controllers/ordersPack');
 router.get('/', listController.getAll);
 router.post('/', listController.create);
 router.get('/:listId', listController.getById);

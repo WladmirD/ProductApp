@@ -1,7 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const orders = require('./routes/orders') ;
-const lists = require('./routes/lists') ;
+const lists = require('./routes/ordersPack') ;
 const users = require('./routes/users');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/database'); //database configuration

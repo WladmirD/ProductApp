@@ -1,6 +1,6 @@
 
 const order = require('../models/orders');
-const list = require('../models/lists');
+const list = require('../models/ordersPack');
 module.exports = {
  getById: function(req, res, next) {
   console.log(req.body);
@@ -71,7 +71,7 @@ create: function(req, res, next){order.create(
       else
       
        
-      res.json({status: "success", message: "order added successfully", data: null});
+      res.json({status: "success", message: "order added successfully", data: {orders: result}});
       
     });
  },

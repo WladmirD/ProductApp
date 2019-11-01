@@ -1,4 +1,4 @@
-const list = require('../models/lists');
+const list = require('../models/ordersPack');
 module.exports = {
  getById: function(req, res, next) {
   console.log(req.body);
@@ -54,11 +54,14 @@ deleteById: function(req, res, next) {
  },
  //Create list
 create: function(req, res, next) {
-  list.create({creator: req.body.creator, name: req.body.name}, function (err, result) {
+    list.create({creator: req.body.creator,
+                 name: req.body.name,
+                 oder: req.body.order,
+}, function (err, result) {
       if (err) 
        next(err);
       else
-       res.json({status: "success", message: "list added successfully", data: null});
+       res.json({status: "success", message: "list added successfully", data: {lists: result}});
       
     });
  },
