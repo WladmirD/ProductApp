@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 //Define a schema
 const Schema = mongoose.Schema;
-const PrderSchema = new Schema({
+const orderSchema = new Schema({
  name: {
   type: String,
   trim: true,  
@@ -13,4 +13,4 @@ const PrderSchema = new Schema({
   required: true
  }
 });
-module.exports = mongoose.model('Order', OrderSchema)
+module.exports = mongoose.model('order', orderSchema)
