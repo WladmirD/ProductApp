@@ -7,15 +7,21 @@ const listSchema = new Schema({
   trim: true,  
   required: true,
  },
+ creator:{
+     type: mongoose.Schema.Types.ObjectId,
+     ref: 'users',
+ },
  created: {
   type: Date,
-  trim: true,
-  required: false
+  default: Date.now,
  },
- time: {
-    type: Number,
-    trim: true,
-    required: true
- }
+ experiation: {
+    type: Date,
+    fedault: (Date.now() + 2400000)
+ },
+order:[{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'orders',
+}],
 });
 module.exports = mongoose.model('list', listSchema)

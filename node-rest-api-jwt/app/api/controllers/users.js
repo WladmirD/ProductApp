@@ -26,4 +26,6 @@ res.json({status:"error", message: "Invalid email/password", data:null});
      }
     });
  },
+ 
+ 
 }

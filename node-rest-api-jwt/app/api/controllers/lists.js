@@ -10,6 +10,7 @@ module.exports = {
    }
   });
  },
+ //Show lists
 getAll: function(req, res, next) {
   let listsList = [];
 listModel.find({}, function(err, lists){
@@ -17,15 +18,23 @@ listModel.find({}, function(err, lists){
     next(err);
    } else{
     for (let list of lists) {
-     listsList.push({id: list._id, name: list.name, created: list.created, time: list.time});
+        listsList.push({
+            id: list._id,
+            name: list.name,
+            creator: list.creator,
+            created: list.created,
+            expiration: list.expiration,
+            order: list.order,
+     });
     }
     res.json({status:"success", message: "lists list found", data:{lists: listsList}});
        
    }
 });
  },
+ //Update lists
 updateById: function(req, res, next) {
-  listModel.findByIdAndUpdate(req.params.listId,{name:req.body.name}, function(err, listInfo){
+  listModel.findByIdAndUpdate(req.params.listId, function(err, listInfo){
 if(err)
     next(err);
    else {
@@ -33,6 +42,7 @@ if(err)
    }
   });
  },
+ //Delete List by ID
 deleteById: function(req, res, next) {
   listModel.findByIdAndRemove(req.params.listId, function(err, listInfo){
    if(err)
@@ -42,8 +52,9 @@ deleteById: function(req, res, next) {
    }
   });
  },
+ //Create list
 create: function(req, res, next) {
-  listModel.create({ name: req.body.name, created:req.body.create, time:req.body.time }, function (err, result) {
+  listModel.create({creator: req.body.creator, name: req.body.name}, function (err, result) {
       if (err) 
        next(err);
       else
