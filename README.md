@@ -11,7 +11,7 @@ Node Js
 
 NPM
 
-MongoDB
+MongoDB (Enterprise for windows)
 
 Postman
 
