@@ -13,6 +13,8 @@ NPM
 
 MongoDB
 
+Postman
+
 ### Running the tests
 
 Take note that the API uses a token, you first have to create an account using postman
