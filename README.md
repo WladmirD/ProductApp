@@ -8,6 +8,8 @@ Clone the repository and extract it.
 
 ### Prerequisites
 
+Node Js
+NPM
 MongoDB
 
 
